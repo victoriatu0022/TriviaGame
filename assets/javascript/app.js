@@ -96,14 +96,14 @@ var game = {
     },
     clicked: function(e) {
         clearInterval(timer);
-        if($(e.target).data("name") == questions[game.currentQuestion].correctAnswer)
-        {game.answerCorrectly(); }
+        if($(e.target).data("name")==questions[game.currentQuestion].correctAnswer)
+        {game.answeredCorrectly(); }
         else{
-            game.answerinCorrectly();
+            game.answeredinCorrectly();
         }
 
     },
-    answerCorrectly: function() {
+    answeredCorrectly: function() {
         console.log("You got it correct!");
         clearInterval(timer);
         game.correct++;
@@ -115,10 +115,10 @@ var game = {
 
         }
     },
-    answerinCorrectly: function() {
+    answeredinCorrectly: function() {
         console.log("You got it incorrect!");
         clearInterval(timer);
-        game.correct++;
+        game.incorrect++;
         $('#subwrapper').html('<h2> You got it incorrect </h2>');
         if(game.currentQuestion==questions.length-1){
             setTimeout(game.results,3*1000)
